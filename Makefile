@@ -3,15 +3,16 @@ help:
 		@echo 'Usage:                                           '
 		@echo '   make install          install                                          '
 		@echo '   make test             run test cases          '
-		@echo '   make clean            clean                   '
 		@echo '   make mybot            start bot               '
+		@echo '   make develop          develop                 '
 		@echo '   make docs             update docs             '
 		@echo '   make upload           upload to pypi          '
+		@echo '   make clean            clean                   '
 
 install:
 	pip install -r requirements.txt
 
-test: install
+test:
 	cd wechatbot; pytest
 	make clean
 
@@ -20,6 +21,9 @@ clean:
 
 mybot:
 	python -m wechatbot.bot
+
+develop:
+	python -m wechatbot.ping
 
 docs:
 	cd wechatbot
